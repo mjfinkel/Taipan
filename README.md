@@ -10,6 +10,6 @@
 $ make ./taipan
 $ ./taipan
 ```
-
+<br>
 ## How to play
 In this game, the player is a trader in the East. While avoiding storms and pirates, the player travels to 7 different ports and can either buy or sell 4 differnt goods. The prices of these goods vary depending on when and where they are being bought. The player can also buy ammunitions to protect themself from pirates. When at the main port, Hong Kong at default, the player can store and protect these goods in their warehouse. The player can also pay off the crime boss and repair their ship here. When traveling, the
