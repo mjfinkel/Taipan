@@ -1,7 +1,7 @@
 # Taipan!
 *C++ terminal/command line implementation of the 1979 computer game "Taipan!"* <br><br>
 
-## Introduction to the game
+## Background
 *Taipan!* is a turn-based strategy computer game created by Art Canfil in 1979 using a TRS-80 and was originally released on the Apple II in 1982.
 <br><br>
 
