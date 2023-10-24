@@ -23,3 +23,18 @@ The player will randomly be attacked by pirates. Carrying more goods in-house ra
 $ make ./taipan
 $ ./taipan
 ```
+
+## Miscellaneous
+- The player can only quit the game when at a port and prompted:
+    ```
+    Your orders [player name]?
+    1. Buy  2. Sell  3. Leave Port
+    9. Leave game
+    ```
+    or prompted at main port:
+    ```
+    Your orders [player name]?
+    1. Buy  2. Sell  3. Leave Port
+    4. Visit Bank  5. Transport Cargo
+    9. Leave game
+    ```
