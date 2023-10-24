@@ -1,3 +1,3 @@
 ## Taipan!
 
-Command line version of the 19
+# C++ command line implementation of the 1979 computer game "Taipan!"
