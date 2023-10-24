@@ -3,7 +3,7 @@ C++ terminal/command line implementation of the 1979 computer game "Taipan!"<br>
 
 ### Introduction to the game
 *Taipan!* is a turn-based strategy computer game created by Art Canfil in 1979 using a TRS-80. In this game, the player is a trader in the East.
-<br>
+<br><br>
 
 ### Initial setup
 ```
