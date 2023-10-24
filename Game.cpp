@@ -272,6 +272,11 @@ void Game::shipAttack() {
     int choice;
     int round = 0;
     while (!finished) {
+        
+        // TODO: make there a chance that the mob organization is the pirate crew (increase the amount of ships attacking)
+        
+        // TODO: make there a chance that mob boss helps fight
+        
         printData();
         if (numShips < 1) {
             cout << "You have sunk all the ships!\n";
@@ -290,6 +295,7 @@ void Game::shipAttack() {
             cout << "1. Fight    2. Run\n";
         }
         cin >> choice;
+        // TODO: make ship lose cargo when fighting
         if (choice == 1) {
             shipVal -= rng(1, numShips / 2);
             shipHealth = shipVal / shipCount;
@@ -302,6 +308,7 @@ void Game::shipAttack() {
             round++;
         }
         else if (choice == 2) {
+            // TODO: make it harder to escape when carrying more cargo
             shipVal -= rng(1, numShips / 2);
             shipHealth = shipVal / shipCount;
             runAway = rng(0, numShips / 2);
@@ -318,6 +325,8 @@ void Game::shipAttack() {
             cout << "Invalid choice\nChose to Fight (1) or Run (2)\n";
             wait(3000);
         }
+        
+        // TODO: make a choice to throw cargo overboard
     }
 }
 
@@ -331,6 +340,7 @@ bool Game::callEvent(int var) {
     }
     else if (var >= 15 && var < 30) { // 15 : 0.15 chance
         // Storm
+        // TODO: chance that some ships sink when carrying too much cargo
         cout << "\n";
         printData();
         cout << "There's a storm approaching!\n";
@@ -366,6 +376,7 @@ void Game::runGame() {
         tempDebt *= 1.02;
         debt = (int)ceil(tempDebt);
         if (currLocation == loc0 && locations[0].mobReqCheck()) {
+            // TODO: make it so higher mobReqCheck when carrying lots of cargo
             printData();
             cout << mob << " requests a donation\n"
                 << "to his criminal organization\n";

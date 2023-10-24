@@ -35,7 +35,7 @@ const std::string loc2 = "Nagasaki";
 const std::string loc3 = "Saigon";
 const std::string loc4 = "Manila";
 const std::string loc5 = "Sigapore";
-const std::string loc6 = "Batvia";
+const std::string loc6 = "Batavia";
 
 const std::string res0 = "Opium";
 const int res0_high = 10000;
