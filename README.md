@@ -4,4 +4,5 @@
 
 ##### Initial setup
 - Run the line:
+
 $ make ./taipan
