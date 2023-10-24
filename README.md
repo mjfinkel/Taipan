@@ -1,11 +1,11 @@
 # Taipan!
-C++ terminal/command line implementation of the 1979 computer game "Taipan!"<br><br>
+*C++ terminal/command line implementation of the 1979 computer game "Taipan!"* <br><br>
 
-### Introduction to the game
+## Introduction to the game
 *Taipan!* is a turn-based strategy computer game created by Art Canfil in 1979 using a TRS-80. In this game, the player is a trader in the East.
 <br><br>
 
-### Initial setup
+## Initial setup
 ```
 $ make ./taipan
 $ ./taipan
