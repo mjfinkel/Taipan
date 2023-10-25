@@ -776,7 +776,6 @@ void Game::runGame() {
                 if (new_ceil < 50) {
                     new_ceil = 50;
                 }
-                cout << new_ceil << '\n';
                 wait(2500);
                 int var = rng(0, ceiling);
                 bool event = callEvent(var);
