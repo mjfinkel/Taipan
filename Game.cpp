@@ -63,21 +63,21 @@ Game::Game(std::string &name) : pName(name),
     currLocation(loc0), currLocationInt(0), month("Jan"),
     monthInt(0), year(1860), shipHealth(100), shipCount(5),
     shipVal(500), guns(startingGuns), gameEnd(false),
-    ceiling(1000), mobAnger(3.5)
+    ceiling(150), mobAnger(3.5)
 {
     vIH.reserve(5);
-    vIH.push_back(0);
-    vIH.push_back(0);
-    vIH.push_back(0);
-    vIH.push_back(0);
-    vIH.push_back(IH_BASE); // Base is 10,000
+    vIH.push_back(res0_start);
+    vIH.push_back(res1_start);
+    vIH.push_back(res2_start);
+    vIH.push_back(res3_start);
+    vIH.push_back(IH_BASE - vIH[0] - vIH[1] - vIH[2] - vIH[3]); // Base is 25,000
     
     vWH.reserve(5);
     vWH.push_back(0);
     vWH.push_back(0);
     vWH.push_back(0);
     vWH.push_back(0);
-    vWH.push_back(WH_BASE); // Base is 2,500,000
+    vWH.push_back(WH_BASE - vWH[0] - vWH[1] - vWH[2] - vWH[3]); // Base is 5,000,000
     
     locations.reserve(7);
     locations.push_back(Location(loc0));
@@ -485,6 +485,11 @@ void Game::runGame() {
                 cash -= perGunPrice * amountGuns;
             }
         }
+        
+        
+        
+        
+// Start of options section
         cout << "\n";
         printData();
         printSpot();
@@ -616,6 +621,12 @@ void Game::runGame() {
                     wait(3000);
                 }
             }
+            else {
+                printData();
+                printSpot();
+                cout << "Invalid choice: " << choice << ".\n";
+                wait(2000);
+            }
         }
         else if (choice == 2) {
             printSpot();
@@ -715,6 +726,12 @@ void Game::runGame() {
                     wait(3000);
                 }
             }
+            else {
+                printData();
+                printSpot();
+                cout << "Invalid choice: " << choice << ".\n";
+                wait(2000);
+            }
         }
         else if (choice == 3) {
             cout << "Where do you wish to sail, " << pName << "?\n";
@@ -733,13 +750,13 @@ void Game::runGame() {
             else {
                 currLocation = newLocation;
                 currLocationInt = choice - 1;
-                changeDate(rng(0, 3));
+                changeDate(rng(0, 4));
                 printData();
+                cout << "Arriving at " << locations[(size_t)(choice - 1)].toString() << " ..." << '\n';
                 locations[(size_t)(choice - 1)].randomizeCosts();
-                cout << "Arriving at " << locations[(size_t)(choice - 1)].toString() << "\n";
-                for (size_t n = 0; n < 10; ++n) {
+                /*for (size_t n = 0; n < 10; ++n) {
                     wait(250);
-                    // TODO: add if you can figure out why it is not adding the "'" to the terminal window
+                    // TODO add if you can figure out why it is not adding the "'" to the terminal window
                     //cout << "\'\'\'";
                     int var = rng(0, ceiling);
                     bool event = callEvent(var);
@@ -749,8 +766,25 @@ void Game::runGame() {
                         cout << "Arriving at " << locations[(size_t)(choice - 1)].toString() << "\n";
                         wait(2500);
                     }
+                }*/
+                double ibc = (IH_BASE / 25000); // IH_BASE Constant
+                double weight0 = (double)(vIH[0]) / (ibc * 5.0); // 5 for 1
+                double weight1 = (double)(vIH[1]) / (ibc * 100.0); // 100 for 1
+                double weight2 = (double)(vIH[2]) / (ibc * 500.0); // 500 for 1
+                double weight3 = (double)(vIH[3]) / (ibc * 1000.0); // 1000 for 1
+                int new_ceil = ceiling - (int)(weight0) - (int)(weight1) - (int)(weight2) - (int)(weight3);
+                if (new_ceil < 50) {
+                    new_ceil = 50;
                 }
-                wait(500);
+                cout << new_ceil << '\n';
+                wait(2500);
+                int var = rng(0, ceiling);
+                bool event = callEvent(var);
+                if (event) {
+                    printData();
+                    cout << "Arriving at " << locations[(size_t)(choice - 1)].toString() << "\n";
+                    wait(2500);
+                }
             }
         }
         else if (choice == 4 && currLocation == loc0) {

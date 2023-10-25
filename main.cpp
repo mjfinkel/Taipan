@@ -14,17 +14,18 @@ using namespace std;
 int main() {
     system("clear");
     
-    string name = "Taipan";
+    string name = defaultName;
     
-    cout << "What is your name, Captain?\n";
-    cin >> name;
-    if (name == "") {
-        name = defaultName;
-    }
+    // TODO: Uncomment after debugging
+//    cout << "What is your name, Captain?\n";
+//    cin >> name;
+//    if (name == "") {
+//        name = defaultName;
+//    }
     
     Game g(name);
     cout << '\n' << "Welcome to " << gameTitle << " " << name << "!\n";
-    g.wait(2000);
+//    g.wait(2000);
     
     g.runGame();
     
